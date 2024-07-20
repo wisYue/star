@@ -17,13 +17,14 @@ end
 # Replace "example.csv" with the path to your actual CSV file
 df = CSV.read("d:/project/star/Unique_Source_Pol_Distance_Table.csv", DataFrame);
 
-RA = df[:,3];
-Dec = df[:,4];
-r = df[:,14];
-pa = df[:,12];
+RA = df[:,3]; # right accession
+Dec = df[:,4]; # declination
+r = df[:,14]; # los distance
+pa = df[:,12]; # polarization angle
 
 pa[pa.<0].+=180;
 
+# sort out stars within the coordinates [RA_min, RA_max], [Dec_min, Dec_max]
 RA_min=67.5;
 RA_max=68.2;
 Dec_min=17.7;
